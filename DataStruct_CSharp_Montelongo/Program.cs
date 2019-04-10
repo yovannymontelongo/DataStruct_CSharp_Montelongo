@@ -19,8 +19,8 @@ namespace DataStruct_CSharp_Montelongo {
             do {
                 Console.WriteLine("Welcome to The Data Structure Console Application");
                 Console.Write(" 1) Linked List \n" +
-                              " 2) \n" +
-                              " 3) \n" +
+                              " 2) Find Node\n" +
+                              " 3) Binary Search Tree\n" +
                               "-1) Exit");
                 Console.Write("\nEnter the number for the data structure you want to create: ");
                 int.TryParse(Console.ReadLine(), out inputChoice);
@@ -28,6 +28,9 @@ namespace DataStruct_CSharp_Montelongo {
                 switch (inputChoice) {
                     case 1:
                         ReverseLinkedList(numList);
+                        break;
+                    case 2:
+                        FindNode();
                         break;
                 }
 
@@ -62,8 +65,31 @@ namespace DataStruct_CSharp_Montelongo {
         }
 
         static void FindNode() {
+            LinkedList<string> linked = new LinkedList<string>();
             
+            linked.AddLast("A");
+            linked.AddLast("B");
+            linked.AddLast("C");
+
+            Console.Clear();
+            Console.WriteLine("\nCurrent linked list values");
+            foreach (var value in linked) {
+                Console.WriteLine(value);
+            }
+
+            Console.WriteLine("\nInsert a value after element 'A': ");
+            LinkedListNode<string> node = linked.Find("A");
+            linked.AddAfter(node, "inserted");
+
+            foreach (var value in linked) {
+                Console.WriteLine(value);
+            }
+
+            Console.Write("Press any key to continue...");
+            Console.ReadKey();
         }
+
+
 
     }
 }
