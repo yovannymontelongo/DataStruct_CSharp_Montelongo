@@ -32,6 +32,9 @@ namespace DataStruct_CSharp_Montelongo {
                     case 2:
                         FindNode();
                         break;
+                    case 3:
+                        BinaryTree();
+                        break;
                 }
 
                 Console.Clear();
@@ -89,7 +92,33 @@ namespace DataStruct_CSharp_Montelongo {
             Console.ReadKey();
         }
 
+        static void BinaryTree() {
+            BinarySearchTree nums = new BinarySearchTree();
+            int choice = 0;
 
+            Console.Clear();
+            Console.WriteLine("\nCurrent binary tree: ");
+
+            nums.Insert(50);
+            nums.Insert(17);
+            nums.Insert(23);
+            nums.Insert(12);
+            nums.Insert(19);
+            nums.Insert(54);
+            nums.Insert(9);
+            nums.Insert(14);
+            nums.Insert(67);
+            nums.Insert(76);
+            nums.Insert(72);
+
+            Console.Write("\nEnter what value you want to search in the tree: ");
+            int.TryParse(Console.ReadLine(), out choice);
+            Console.Write("\nYou searched for: ");
+            nums.Search(choice);
+
+            Console.Write("\nPress any key to continue...");
+            Console.ReadKey();
+        }
 
     }
 }
